@@ -1,0 +1,112 @@
+body {
+  background: #0d1117;
+  color: azure;
+  min-height: 100vh;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.slider {
+  height: 250px;
+  margin: auto;
+  position: relative;
+  width: 90%;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.slide-track {
+  display: flex;
+  width: calc(250px * 18);
+  animation: scroll 40s linear infinite;
+}
+
+.slide-track.card-track {
+  gap: 190px;
+  animation-direction: reverse;
+}
+
+.slide-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-250px * 9));
+  }
+}
+
+.slide {
+  height: 200px;
+  width: 250px;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+}
+
+.slide > img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+/* Gradient shadows */
+.slider::before,
+.slider::after {
+  background: linear-gradient(
+    to right,
+    rgba(13, 17, 23, 1) 0%,
+    rgba(13, 17, 23, 0) 100%
+  );
+  content: '';
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 15%;
+  z-index: 2;
+}
+
+.slider::before {
+  left: 0;
+}
+
+.slider::after {
+  right: 0;
+  transform: rotateZ(180deg);
+}
+
+.card {
+  background: linear-gradient(116.67deg, #0b1119 2.31%, #090d13 37.44%);
+  border-radius: 8px;
+  display: flex;
+  align-items: flex-start;
+  padding: 10px;
+  border: 1px solid transparent;
+  transition: all 0.5s ease-in-out;
+}
+
+.card:hover {
+  border: 1px solid #5252526c;
+}
+
+.card .image {
+  width: 350px;
+}
+
+.card img {
+  width: 100%;
+}
+
+.card p {
+  color: #b4b4b4;
+  font-style: italic;
+}
+
+.card h5 {
+  color: #048e83;
+}
